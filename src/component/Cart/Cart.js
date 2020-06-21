@@ -4,12 +4,12 @@ const Cart = (props) => {
   const cart = props.cart;
   //   const total = cart.reduce((total, prd) => total + prd.price, 0);
   let total = 0;
-  for (let index = 0; index < cart.length; index++) {
-    const product = cart[index];
-    total = total + product.price;
+  for (let i = 0; i < cart.length; i++) {
+    const product = cart[i];
+    total = total + product.price * product.quantity;
   }
 
-  let shipping = 0.0;
+  let shipping = 0;
   if (total > 35) {
     shipping = 0;
   } else if (total > 15) {
@@ -22,7 +22,7 @@ const Cart = (props) => {
   const grandTotal = (total + shipping + Number(tax)).toFixed(2);
 
   return (
-    <div>
+    <div className="cart">
       <h4>Order Summary</h4>
       <p>Items Ordered :{cart.length} </p>
       <p>Product Price :{total} </p>
@@ -33,6 +33,8 @@ const Cart = (props) => {
         <small>Tax + Vat :{tax} </small>
       </p>
       <p>Total Price :{grandTotal} </p>
+      <br />
+      {props.children}
     </div>
   );
 };
