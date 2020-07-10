@@ -1,12 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { UserContext } from "../../App";
 
 const Cart = (props) => {
   const cart = props.cart;
-  const user = useContext(UserContext);
-  useEffect(() => {
-    console.log(user);
-  });
+  //const user = useContext(UserContext);
+  //console.log(user);
   //   const total = cart.reduce((total, prd) => total + prd.price, 0);
   let total = 0;
   for (let i = 0; i < cart.length; i++) {
@@ -40,6 +38,7 @@ const Cart = (props) => {
       <p>Total Price :{grandTotal} </p>
       <br />
       {props.children}
+      <p>{}</p>
     </div>
   );
 };

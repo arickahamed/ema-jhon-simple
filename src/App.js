@@ -8,14 +8,13 @@ import Inventory from "./component/Inventory/Inventory";
 import NotFound from "./component/Not Found/NotFound";
 import ProductDetail from "./component/ProductDetail/ProductDetail";
 import LogIn from "./component/LogIn/LogIn";
-import { createContext } from "react";
-
-export const UserContext = createContext();
+import { AuthContextProvider } from "./component/LogIn/UseAuth";
 
 function App() {
+  const user = { name: "koduMia", email: "kodu@chodu@gmail.com" };
   return (
     <div>
-      <UserContext.Provider value="GeduMia">
+      <AuthContextProvider>
         <Header></Header>
         <Router>
           <Switch>
@@ -42,7 +41,7 @@ function App() {
             </Route>
           </Switch>
         </Router>
-      </UserContext.Provider>
+      </AuthContextProvider>
     </div>
   );
 }
