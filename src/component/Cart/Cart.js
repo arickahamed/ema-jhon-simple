@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import { UserContext } from "../../App";
+import { useAuth } from "../LogIn/UseAuth";
 
 const Cart = (props) => {
   const cart = props.cart;
-  //const user = useContext(UserContext);
-  //console.log(user);
+  const auth = useAuth();
+  // useEffect(() => {
+  //   console.log(auth.user);
+  // });
   //   const total = cart.reduce((total, prd) => total + prd.price, 0);
   let total = 0;
   for (let i = 0; i < cart.length; i++) {

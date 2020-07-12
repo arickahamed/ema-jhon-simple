@@ -8,10 +8,10 @@ import Inventory from "./component/Inventory/Inventory";
 import NotFound from "./component/Not Found/NotFound";
 import ProductDetail from "./component/ProductDetail/ProductDetail";
 import LogIn from "./component/LogIn/LogIn";
-import { AuthContextProvider } from "./component/LogIn/UseAuth";
+import { AuthContextProvider, PrivateRoute } from "./component/LogIn/UseAuth";
+import Shipment from "./component/Shipment/Shipment";
 
 function App() {
-  const user = { name: "koduMia", email: "kodu@chodu@gmail.com" };
   return (
     <div>
       <AuthContextProvider>
@@ -36,6 +36,9 @@ function App() {
             <Route path="/logIn">
               <LogIn></LogIn>
             </Route>
+            <PrivateRoute path="/shipment">
+              <Shipment></Shipment>
+            </PrivateRoute>
             <Route path="*">
               <NotFound></NotFound>
             </Route>
