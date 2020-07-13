@@ -1,12 +1,13 @@
 import React from "react";
 import "./Header.css";
+import image from "../images/logo.png";
 import { useAuth } from "./LogIn/UseAuth";
 
 const Header = () => {
   const auth = useAuth();
   return (
     <div className="header">
-      <img src="../images/logo.png" alt="" />
+      <img src={image} alt="" />
       <nav>
         <a href="/shop">Shop</a>
         <a href="/review">Review</a>
